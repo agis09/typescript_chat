@@ -1,8 +1,13 @@
 import type { NextPage } from 'next'
-import { Box, Heading } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react'
+import { AuthGuard } from '@src/feature/auth/component/AuthGuard/AuthGuard'
+
 
 const Page: NextPage = () => {
-  return <Box>
-    <Heading>Chakura UI</Heading></Box>
+  return (
+    <AuthGuard>
+      <Heading>Chakura UI</Heading>
+    </AuthGuard>
+  )
 }
 export default Page

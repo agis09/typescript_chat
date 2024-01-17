@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "run-p dev:*",
+    "dev:next": "next dev",
+    "dev:path": "pathpida --ignorepath .gitignore --output src/lib/pathpida",
     "build": "next build",
     "start": "next start",
     "lint": "run-p lint:*",
@@ -15,6 +17,7 @@
     "format:prettier": "yarn lint:prettier --write"
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -33,6 +36,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "npm-run-all": "^4.1.5",
+    "pathpida": "^0.22.0",
     "postcss": "^8",
     "prettier": "^3.2.2",
     "tailwindcss": "^3.3.0",

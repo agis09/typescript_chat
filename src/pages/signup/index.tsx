@@ -19,12 +19,15 @@ import {
     sendEmailVerification,
 } from 'firebase/auth'
 import { FirebaseError } from '@firebase/util'
+import { pagesPath } from '@src/lib/pathpida/$path'
+import { useRouter } from 'next/router'
 
 export const Page = () => {
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const toast = useToast()
+    const { push } = useRouter()
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         setIsLoading(true)
@@ -44,6 +47,7 @@ export const Page = () => {
                 status: 'success',
                 position: 'top',
             })
+            push(pagesPath.chat.$url()['pathname'])
         } catch (e) {
             toast({
                 title: 'エラーが発生しました。',
